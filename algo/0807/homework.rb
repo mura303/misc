@@ -14,7 +14,7 @@ delchar = []
 charnums.to_a.sort do |a,b|
     (a[1] <=> b[1]) * 2 + (b[0] <=> a[0])    
 end.each do |elem|
-    if elem[1] < k
+    if elem[1] <= k
         delchar << elem[0]
         k -= elem[1]
     else
