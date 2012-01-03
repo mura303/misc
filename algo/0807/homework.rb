@@ -14,7 +14,7 @@ delchar = []
 charnums.to_a.sort do |a,b|
     (a[1] <=> b[1]) * 2 + (b[0] <=> a[0])    
 end.each do |elem|
-    if elem[1] < k
+    if elem[1] <= k
         delchar << elem[0]
         k -= elem[1]
     else
@@ -23,7 +23,8 @@ end.each do |elem|
 end
 
 delchar.each do |c|
-    str.delete("%c"%c)
+    str.delete!("%c"%c)
 end
 
-p str
+puts str.unpack("C*").uniq.length
+puts str
